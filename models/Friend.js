@@ -6,7 +6,7 @@ const friendSchema = new Schema(
   {
     friendName: {
       type: String,
-      minLength: 15,
+      minLength: 3,
       maxLength: 500,
     },
     createdAt: {
