@@ -97,11 +97,11 @@ module.exports = {
     }
   },
   // Adds a tag to an application. This method is unique in that we add the entire body of the tag rather than the ID with the mongodb $addToSet operator.
-  async addTag(req, res) {
+  async addReaction(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
         { _id: req.params.applicationId },
-        { $addToSet: { tags: req.body } },
+        { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
 
@@ -111,15 +111,16 @@ module.exports = {
 
       res.json(thoughts);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
   // Remove application tag. This method finds the application based on ID. It then updates the tags array associated with the app in question by removing it's tagId from the tags array.
-  async removeTag(req, res) {
+  async removeReaction(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
         { _id: req.params.applicationId },
-        { $pull: { tags: { tagId: req.params.tagId } } },
+        { $pull: { reactions: { tagId: req.params.tagId } } },
         { runValidators: true, new: true }
       );
 
@@ -129,7 +130,14 @@ module.exports = {
 
       res.json(thoughts);
     } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },
+
+  
+
 };
+
+
+
