@@ -37,7 +37,7 @@ module.exports = {
     }
   },
 
-  // Updates and application using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
+  // Updates and user using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
   async updateuser(req, res) {
     try {
       const user = await User.findOneAndUpdate(
@@ -74,7 +74,7 @@ module.exports = {
     }
   },
 
-  // Adds a tag to an application. This method is unique in that we add the entire body of the tag rather than the ID with the mongodb $addToSet operator.
+  // Adds a friend to an user. This method is unique in that we add the entire body of the tag rather than the ID with the mongodb $addToSet operator.
   async addFriend(req, res) {
     try {
       const friends = await Friend.create(req.body);
@@ -96,7 +96,7 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Remove application tag. This method finds the application based on ID. It then updates the tags array associated with the app in question by removing it's tagId from the tags array.
+  // Remove friend of user. This method finds the user based on ID. It then updates the friend array associated with the app in question by removing it's friendId from the friends array.
   async removeFriend(req, res) {
     try {
       const friends = await Friend.findOneAndRemove(

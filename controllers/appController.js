@@ -2,7 +2,7 @@ const { Thought, User } = require('../models');
 
 
 module.exports = {
-  // Function to get all of the applications by invoking the find() method with no arguments.
+  // Function to get all of the Thoughts by invoking the find() method with no arguments.
   // Then we return the results as JSON, and catch any errors. Errors are sent as JSON with a message and a 500 status code
   async getThoughts(req, res) {
     try {
@@ -13,13 +13,13 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Gets a single application using the findOneAndUpdate method. We pass in the ID of the application and then respond with it, or an error if not found
+  // Gets a single Thought using the findOneAndUpdate method. We pass in the ID of the Thought and then respond with it, or an error if not found
   async getSingleThoughts(req, res) {
     try {
-      const thoughts = await Thought.findOne({ _id: req.params.applicationId });
+      const thoughts = await Thought.findOne({ _id: req.params.thoughtId });
 
       if (!thoughts) {
-        return res.status(404).json({ message: 'No application with that ID' });
+        return res.status(404).json({ message: 'No Thought with that ID' });
       }
 
       res.json(thoughts);
@@ -27,8 +27,8 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Creates a new application. Accepts a request body with the entire Application object.
-  // Because applications are associated with Users, we then update the User who created the app and add the ID of the application to the applications array
+  // Creates a new Thought. Accepts a request body with the entire Thought object.
+  // Because Thoughts are associated with Users, we then update the User who created the app and add the ID of the application to the applications array
   async createThoughts(req, res) {
     try {
       const thoughts = await Thought.create(req.body);
@@ -50,11 +50,11 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Updates and application using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
+  // Updates and Thought using the findOneAndUpdate method. Uses the ID, and the $set operator in mongodb to inject the request body. Enforces validation.
   async updateThoughts(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
-        { _id: req.params.applicationId },
+        { _id: req.params.thoughtId },
         { $set: req.body },
         { runValidators: true, new: true }
       );
@@ -69,19 +69,19 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Deletes an application from the database. Looks for an app by ID.
-  // Then if the app exists, we look for any users associated with the app based on he app ID and update the applications array for the User.
+  // Deletes an Thought from the database. Looks for an app by ID.
+  // Then if the app exists, we look for any users associated with the app based on the Thought ID and update the applications array for the User.
   async deleteThoughts(req, res) {
     try {
-      const thoughts = await Thought.findOneAndRemove({ _id: req.params.applicationId });
+      const thoughts = await Thought.findOneAndRemove({ _id: req.params.thoughtId });
 
       if (!thoughts) {
         return res.status(404).json({ message: 'No application with this id!' });
       }
 
       const user = await User.findOneAndUpdate(
-        { thoughts: req.params.applicationId },
-        { $pull: { thoughts: req.params.applicationId } },
+        { thoughts: req.params.thoughtId },
+        { $pull: { thoughts: req.params.thoughtId } },
         { new: true }
       );
 
@@ -96,11 +96,11 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Adds a tag to an application. This method is unique in that we add the entire body of the tag rather than the ID with the mongodb $addToSet operator.
+  // Adds a reaction to an Thought. This method is unique in that we add the entire body of the reaction rather than the ID with the mongodb $addToSet operator.
   async addReaction(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
-        { _id: req.params.applicationId },
+        { _id: req.params.thoughtId },
         { $addToSet: { reactions: req.body } },
         { runValidators: true, new: true }
       );
@@ -115,11 +115,11 @@ module.exports = {
       res.status(500).json(err);
     }
   },
-  // Remove application tag. This method finds the application based on ID. It then updates the tags array associated with the app in question by removing it's tagId from the tags array.
+  // Remove thought's reaction. This method finds the thought based on ID. It then updates the tags array associated with the thought in question by removing it's tagId from the reactions array.
   async removeReaction(req, res) {
     try {
       const thoughts = await Thought.findOneAndUpdate(
-        { _id: req.params.applicationId },
+        { _id: req.params.thoughtId },
         { $pull: { reactions: { tagId: req.params.tagId } } },
         { runValidators: true, new: true }
       );

@@ -23,7 +23,7 @@ const thoughtSchema = new Schema(
   }
 );
 
-// Create a virtual property `getTags` that gets the amount of tags associated with an application
+// Create a virtual property `getreactions` that gets the amount of reactions associated with an application
 thoughtSchema
   .virtual('reactionCount')
   // Getter
