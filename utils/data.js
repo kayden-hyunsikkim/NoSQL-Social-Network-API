@@ -112,36 +112,35 @@ const users = [];
 // Get a random item given an array
 const getRandomArrItem = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
-// Gets a random full name
+// Gets a random name
 const getRandomName = () =>
   `${getRandomArrItem(names)}`;
 
-// Function to generate random applications that we can add to the database. Includes application tags.
+// Function to generate random thoughts that we can add to the database.
 const getRandomThoughts = (int) => {
   let results = [];
   for (let i = 0; i < int; i++) {
     results.push({
       thoughtText: getRandomArrItem(appDescriptions),
       username: getRandomArrItem(names),
-      //reactions: [...getApplicationTags(3)],
     });
   }
   return results;
 };
 
 // Create the tags that will be added to each application
-const getApplicationTags = (int) => {
-  if (int === 1) {
-    return getRandomArrItem(possibleTags);
-  }
-  const results = [];
-  for (let i = 0; i < int; i++) {
-    results.push({
-      tagBody: getRandomArrItem(possibleTags),
-    });
-  }
-  return results;
-};
+//const getApplicationTags = (int) => {
+//  if (int === 1) {
+//    return getRandomArrItem(possibleTags);
+//  }
+//  const results = [];
+//  for (let i = 0; i < int; i++) {
+//    results.push({
+//      tagBody: getRandomArrItem(possibleTags),
+//    });
+//  }
+//  return results;
+//};
 
 // Export the functions for use in seed.js
 module.exports = { getRandomName, getRandomThoughts };
