@@ -99,19 +99,46 @@ module.exports = {
   // Remove application tag. This method finds the application based on ID. It then updates the tags array associated with the app in question by removing it's tagId from the tags array.
   async removeFriend(req, res) {
     try {
-      const friends = await User.findOneAndUpdate(
-        { _id: req.params.userId },
-        { $pull: { reactions: { tagId: req.params.friendId } } },
-        { runValidators: true, new: true }
+      const friends = await Friend.findOneAndRemove(
+        { _id: req.params.friendId }
       );
 
       if (!friends) {
         return res.status(404).json({ message: 'No application with this id!' });
       }
 
-      res.json(friends);
+      const user = await User.findOneAndUpdate(
+        { friends: req.params.friendId },
+        { $pull: { friends: req.params.friendId } },
+        { new: true }
+      );
+      if (!user) {
+        return res.status(404).json({
+          message: 'Application created but no user with this id!',
+        });
+      }
+
+      res.json({ message: 'Application successfully deleted!' });
+      
+
     } catch (err) {
       console.log(err);
+      res.status(500).json(err);
+    }
+  },
+
+  // Get a single friend
+  async getSingleFriend(req, res) {
+    try {
+      const friend = await Friend.findOne({ _id: req.params.friendId })
+        .select('-__v');
+
+      if (!friend) {
+        return res.status(404).json({ message: 'No user with that ID' });
+      }
+
+      res.json(friend);
+    } catch (err) {
       res.status(500).json(err);
     }
   },
