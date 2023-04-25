@@ -1,4 +1,4 @@
-const { User, Application } = require('../models');
+const { User, Friend } = require('../models');
 
 module.exports = {
   // Get all users
@@ -73,4 +73,47 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+
+  // Adds a tag to an application. This method is unique in that we add the entire body of the tag rather than the ID with the mongodb $addToSet operator.
+  async addFriend(req, res) {
+    try {
+      const friends = await Friend.create(req.body);
+      const users = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $addToSet: { friends: friends._id } },
+        { runValidators: true, new: true }
+      );
+      console.log(users);
+      if (!users) {
+        return res.status(404).json({
+          message: 'Application created, but found no user with that ID',
+        })
+      }
+
+      res.json('Created the application 🎉');
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
+  // Remove application tag. This method finds the application based on ID. It then updates the tags array associated with the app in question by removing it's tagId from the tags array.
+  async removeFriend(req, res) {
+    try {
+      const friends = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        { $pull: { reactions: { tagId: req.params.friendId } } },
+        { runValidators: true, new: true }
+      );
+
+      if (!friends) {
+        return res.status(404).json({ message: 'No application with this id!' });
+      }
+
+      res.json(friends);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
+  
 };
