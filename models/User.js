@@ -5,13 +5,13 @@ const userSchema = new Schema(
   {
     username: String,
     email: String,
-    Thoughts: [
+    thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'thought',
+        ref: 'Thought',
       },
     ],
-    Friends: [
+    friends: [
       {
         type: Schema.Types.ObjectId,
         ref: 'thought',
@@ -33,7 +33,7 @@ userSchema
   .virtual('friendcount')
   // Getter
   .get(function () {
-    return `${this.Friends.length}`;
+    return `${this.friends.length}`;
   })
 
 // Initialize our User model

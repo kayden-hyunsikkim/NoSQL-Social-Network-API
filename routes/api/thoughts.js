@@ -1,23 +1,23 @@
 const router = require('express').Router();
 const {
-  getApplications,
-  getSingleApplication,
-  createApplication,
-  updateApplication,
-  deleteApplication,
+  getThoughts,
+  getSingleThoughts,
+  createThoughts,
+  updateThoughts,
+  deleteThoughts,
   addTag,
   removeTag,
 } = require('../../controllers/appController');
 
 // /api/applications
-router.route('/').get(getApplications).post(createApplication);
+router.route('/').get(getThoughts).post(createThoughts);
 
 // /api/applications/:applicationId
 router
   .route('/:applicationId')
-  .get(getSingleApplication)
-  .put(updateApplication)
-  .delete(deleteApplication);
+  .get(getSingleThoughts)
+  .put(updateThoughts)
+  .delete(deleteThoughts);
 
 // /api/applications/:applicationId/tags
 router.route('/:applicationId/tags').post(addTag);
