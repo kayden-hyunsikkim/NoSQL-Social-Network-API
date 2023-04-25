@@ -13,13 +13,12 @@ connection.once('open', async () => {
   const THoughts = getRandomThoughts(10);
 
   for (let i = 0; i < 20; i++) {
-    const Name = getRandomName();
+    const userame = getRandomName();
     const Email = getRandomName();
 
     users.push({
-      Name,
+      userame,
       Email,
-      //age: Math.floor(Math.random() * (99 - 18 + 1) + 18),
     });
   }
 
