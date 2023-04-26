@@ -89,23 +89,7 @@ const appDescriptions = [
   'Deliveries',
 ];
 
-const possibleTags = [
-  'html',
-  'css',
-  'javascript',
-  'typescript',
-  'go',
-  'cpp',
-  'python',
-  'rust',
-  'React',
-  'React Native',
-  'NextJS',
-  'Tailwind',
-  'Vue',
-  'mongodb',
-  'sql',
-];
+
 
 const users = [];
 
@@ -128,19 +112,7 @@ const getRandomThoughts = (int) => {
   return results;
 };
 
-// Create the tags that will be added to each application
-//const getApplicationTags = (int) => {
-//  if (int === 1) {
-//    return getRandomArrItem(possibleTags);
-//  }
-//  const results = [];
-//  for (let i = 0; i < int; i++) {
-//    results.push({
-//      tagBody: getRandomArrItem(possibleTags),
-//    });
-//  }
-//  return results;
-//};
+
 
 // Export the functions for use in seed.js
 module.exports = { getRandomName, getRandomThoughts };
