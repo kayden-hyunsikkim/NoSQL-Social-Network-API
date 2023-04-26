@@ -44,15 +44,20 @@ After installing npm packages, the application will be invoked by using the foll
 2. When it is connected, you can see the result by insomnia
 ```
 
-#### Walkthrough Video
+## Walkthrough Video
 
-Firtst workthrough video (getting all datas) :  <br>
-Second workthrough video (getting a single data by id) : <br>
-Third workthrough video (POST, PUT, and DELETE routes for categories) : <br>
+```
+Firtst workthrough video (getting all users and thoughts data ) : https://drive.google.com/file/d/1U4GapLbXi3TnPmnr2aQA5WE0KyMUqk5E/view
+Second workthrough video (getting a single data by id for users and thoughts) : https://drive.google.com/file/d/1xtmU4vZhv_f80Rw8QsuF1CvdmlEanG_2/view
+Third workthrough video (POST, PUT, and DELETE routes for users) : https://drive.google.com/file/d/1EWM53IY_fw7Xb3wBNV6_GuDHJ6DcLdfr/view
+Fourth workthrough video (POST, PUT, and DELETE routes for thoughts) : https://drive.google.com/file/d/1Zhf7B3kqt_t82RuKAAmeLCecgBz4lmpI/view
+Fifth workthrough video (POST and DELETE routes for friend) : https://drive.google.com/file/d/1ztL-6yAeS6fykq8-iXxhzKq6vYYIzUEH/view
+Sixth workthrough video (POST and DELETE routes for reaction) : https://drive.google.com/file/d/1RbfWK766MhQognzajTaQ32kvniXXFgMw/view
+```
 
-#### Insomnia Screenshot
+## Insomnia Screenshot
 
-![Screenshot](./screenshot/insomnia.png)
+![Screenshot](./src/Screenshot%202023-04-26%20135803.jpg)
 
 (screenshot image could be slitely different with the application)
 
