@@ -54,11 +54,11 @@ Second workthrough video (getting a single data by id for users and thoughts) : 
 Third workthrough video (POST, PUT, and DELETE routes for users) : <br>
 <p>https://drive.google.com/file/d/1EWM53IY_fw7Xb3wBNV6_GuDHJ6DcLdfr/view</p>
 Fourth workthrough video (POST, PUT, and DELETE routes for thoughts) : <br>
-<p>https://drive.google.com/file/d/1Zhf7B3kqt_t82RuKAAmeLCecgBz4lmpI/view</p>
+<p>https://drive.google.com/file/d/1iR-BwxJJPc9BtGjCJC5TFxbZYrCUMwMP/view</p>
 Fifth workthrough video (POST and DELETE routes for friend) :<br>
 <p>https://drive.google.com/file/d/1ztL-6yAeS6fykq8-iXxhzKq6vYYIzUEH/view</p>
 Sixth workthrough video (POST and DELETE routes for reaction) : <br>
-<p>https://drive.google.com/file/d/1RbfWK766MhQognzajTaQ32kvniXXFgMw/view</p>
+<p>https://drive.google.com/file/d/1PJNmtQeBCF0Ss6wwkOAB_yGmNf__UDky/view</p>
 
 
 ## Insomnia Screenshot
