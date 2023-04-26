@@ -46,14 +46,20 @@ After installing npm packages, the application will be invoked by using the foll
 
 ## Walkthrough Video
 
-```
-Firtst workthrough video (getting all users and thoughts data ) : https://drive.google.com/file/d/1U4GapLbXi3TnPmnr2aQA5WE0KyMUqk5E/view
-Second workthrough video (getting a single data by id for users and thoughts) : https://drive.google.com/file/d/1xtmU4vZhv_f80Rw8QsuF1CvdmlEanG_2/view
-Third workthrough video (POST, PUT, and DELETE routes for users) : https://drive.google.com/file/d/1EWM53IY_fw7Xb3wBNV6_GuDHJ6DcLdfr/view
-Fourth workthrough video (POST, PUT, and DELETE routes for thoughts) : https://drive.google.com/file/d/1Zhf7B3kqt_t82RuKAAmeLCecgBz4lmpI/view
-Fifth workthrough video (POST and DELETE routes for friend) : https://drive.google.com/file/d/1ztL-6yAeS6fykq8-iXxhzKq6vYYIzUEH/view
-Sixth workthrough video (POST and DELETE routes for reaction) : https://drive.google.com/file/d/1RbfWK766MhQognzajTaQ32kvniXXFgMw/view
-```
+
+Firtst workthrough video (getting all users and thoughts data ) :<br> 
+<p>https://drive.google.com/file/d/1U4GapLbXi3TnPmnr2aQA5WE0KyMUqk5E/view</p>
+Second workthrough video (getting a single data by id for users and thoughts) : <br>
+<p>https://drive.google.com/file/d/1xtmU4vZhv_f80Rw8QsuF1CvdmlEanG_2/view</p>
+Third workthrough video (POST, PUT, and DELETE routes for users) : <br>
+<p>https://drive.google.com/file/d/1EWM53IY_fw7Xb3wBNV6_GuDHJ6DcLdfr/view</p>
+Fourth workthrough video (POST, PUT, and DELETE routes for thoughts) : <br>
+<p>https://drive.google.com/file/d/1Zhf7B3kqt_t82RuKAAmeLCecgBz4lmpI/view</p>
+Fifth workthrough video (POST and DELETE routes for friend) :<br>
+<p>https://drive.google.com/file/d/1ztL-6yAeS6fykq8-iXxhzKq6vYYIzUEH/view</p>
+Sixth workthrough video (POST and DELETE routes for reaction) : <br>
+<p>https://drive.google.com/file/d/1RbfWK766MhQognzajTaQ32kvniXXFgMw/view</p>
+
 
 ## Insomnia Screenshot
 
